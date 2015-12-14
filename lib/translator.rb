@@ -11,13 +11,17 @@ def load_library(file_path)
     translate_emoticon['get_emoticon'][v[0]] = v[1]
   end
   translate_emoticon
-  # code goes here
 end
 
-def get_japanese_emoticon
-  # code goes here
+def get_japanese_emoticon(file_path, emoticon)
+  emoticons = load_library(file_path)
+  translated_emoticon = emoticons["get_emoticon"][emoticon]
+  translated_emoticon == nil ? "Sorry, that emoticon was not found" : translated_emoticon
 end
 
-def get_english_meaning
+def get_english_meaning(file_path, emoticon)
+  emoticons = load_library(file_path)
+  meaning = emoticons["get_meaning"][emoticon]
+  meaning == nil ? "Sorry, that emoticon was not found" : meaning
   # code goes here
 end
