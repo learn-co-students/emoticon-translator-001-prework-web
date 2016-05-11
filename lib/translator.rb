@@ -15,27 +15,19 @@ end
 def get_japanese_emoticon(filepath, emoticon)
   # code goes here
   emoticons_library = load_library(filepath)
-  if emoticons_library["get_emoticon"].has_key?(emoticon)
-    emoticons_library["get_emoticon"].each do |key, value|
-      if key == emoticon
-        return value
-      end
-    end
-  else
+  if !emoticons_library["get_emoticon"].has_key?(emoticon)
     return "Sorry, that emoticon was not found"
+  else
+    emoticons_library["get_emoticon"][emoticon]
   end
 end
 
 def get_english_meaning(filepath, emoticon)
   # code goes here
   emoticons_library = load_library(filepath)
-  if emoticons_library["get_meaning"].has_key?(emoticon)
-    emoticons_library["get_meaning"].each do |key, value|
-      if key == emoticon
-        return value
-      end
-    end
-  else
+  if !emoticons_library["get_meaning"].has_key?(emoticon)
     return "Sorry, that emoticon was not found"
+  else
+    emoticons_library["get_meaning"][emoticon]
   end
 end
