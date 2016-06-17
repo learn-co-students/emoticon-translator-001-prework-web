@@ -14,12 +14,10 @@ end
 
 def get_japanese_emoticon(emoticons, emoticon)
   emoticons = load_library(emoticons)
-  emoticons["get_emoticon"].each {|english,japanese| return japanese if emoticon == english}
-  "Sorry, that emoticon was not found"
+  emoticons["get_emoticon"].key?(emoticon) ? emoticons["get_emoticon"][emoticon] : "Sorry, that emoticon was not found"
 end
 
 def get_english_meaning(emoticons,emoticon)
   emoticons = load_library(emoticons)
-  emoticons["get_meaning"].each {|emoji,meaning| return meaning if emoji == emoticon}
-  "Sorry, that emoticon was not found"
+  emoticons["get_meaning"].key?(emoticon) ? emoticons["get_meaning"][emoticon] : "Sorry, that emoticon was not found"
 end
